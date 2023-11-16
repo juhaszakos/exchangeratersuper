@@ -1,0 +1,15 @@
+services:
+  exchange-rater-db:
+    container_name: exchange-rater-db
+    image: postgres:16.1
+    environment:
+      POSTGRES_USER: exchange-rater # TODO jakos-2023.11.16: externalize
+      POSTGRES_PASSWORD: exchange-rater # TODO jakos-2023.11.16: externalize
+    ports:
+      - "5432:5432"
+    networks:
+      - exchange-rater-network
+
+networks:
+  exchange-rater-network:
+    name: exchange-rater-network
